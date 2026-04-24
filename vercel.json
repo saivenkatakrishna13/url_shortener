@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "installCommand": "cd FRONTEND && npm ci",
+  "buildCommand": "cd FRONTEND && npm run build",
+  "outputDirectory": "FRONTEND/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

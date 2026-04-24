@@ -1,0 +1,20 @@
+{
+  "name": "url_shortner-master-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saivenkatakrishna13/url_shortener.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saivenkatakrishna13/url_shortener/issues"
+  },
+  "homepage": "https://github.com/saivenkatakrishna13/url_shortener#readme"
+}

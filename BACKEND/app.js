@@ -15,8 +15,13 @@ dotenv.config({ path: "./.env" });
 
 const app = express();
 
+const allowedOrigins = (process.env.CORS_ORIGIN || "http://localhost:5173")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean)
+
 app.use(cors({
-    origin: 'http://localhost:5173', // your React app
+    origin: allowedOrigins,
     credentials: true // 👈 this allows cookies to be sent
 }));
 
@@ -36,8 +41,10 @@ app.use(errorHandler)
 const startServer = async () => {
     await connectDB();
 
-    app.listen(3000, () => {
-        console.log("Server is running on http://localhost:3000");
+    const port = process.env.PORT || 3000
+
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
     });
 };
 

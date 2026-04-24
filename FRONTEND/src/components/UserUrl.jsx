@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getAllUserUrls } from '../api/user.api'
 import { deleteShortUrl } from '../api/shortUrl.api'
 import { queryClient } from '../main'
+import { APP_BASE_URL } from '../utils/runtimeConfig'
 
 const UserUrl = () => {
   const { data: urls, isLoading, isError, error } = useQuery({
@@ -49,7 +50,7 @@ const UserUrl = () => {
 
     return (item.clicks || 0) > (best.clicks || 0) ? item : best
   }, null)
-  const baseUrl = 'http://localhost:3000'
+  const baseUrl = APP_BASE_URL
 
   if (isLoading) {
     return (

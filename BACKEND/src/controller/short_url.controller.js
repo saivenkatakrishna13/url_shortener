@@ -3,6 +3,11 @@ import { createShortUrlWithoutUser, createShortUrlWithUser } from "../services/s
 import { NotFoundError } from "../utils/errorHandler.js"
 import wrapAsync from "../utils/tryCatchWrapper.js"
 
+const buildPublicShortUrl = (shortUrl) => {
+    const baseUrl = process.env.APP_URL || "http://localhost:3000/"
+    return new URL(shortUrl, baseUrl).toString()
+}
+
 export const createShortUrl = wrapAsync(async (req,res)=>{
     const data = req.body
     let shortUrl
@@ -11,7 +16,7 @@ export const createShortUrl = wrapAsync(async (req,res)=>{
     }else{  
         shortUrl = await createShortUrlWithoutUser(data.url)
     }
-    res.status(200).json({shortUrl : process.env.APP_URL + shortUrl})
+    res.status(200).json({shortUrl : buildPublicShortUrl(shortUrl)})
 })
 
 
@@ -25,7 +30,7 @@ export const redirectFromShortUrl = wrapAsync(async (req,res)=>{
 export const createCustomShortUrl = wrapAsync(async (req,res)=>{
     const {url,slug} = req.body
     const shortUrl = await createShortUrlWithoutUser(url,customUrl)
-    res.status(200).json({shortUrl : process.env.APP_URL + shortUrl})
+    res.status(200).json({shortUrl : buildPublicShortUrl(shortUrl)})
 })
 
 export const deleteShortUrl = wrapAsync(async (req, res) => {

@@ -1,7 +1,8 @@
 import axios from "axios"
+import { API_BASE_URL } from "./runtimeConfig"
 
 const axiosInstance = axios.create({
-    baseURL:"http://localhost:3000",
+    baseURL: API_BASE_URL,
     timeout:10000, //10s
     withCredentials:true
 })
