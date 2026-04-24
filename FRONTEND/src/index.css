@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+	color-scheme: dark;
+	font-family: 'Space Grotesk', sans-serif;
+	background: #020617;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	min-height: 100vh;
+	color: #e2e8f0;
+	background:
+		radial-gradient(circle at top left, rgba(34, 211, 238, 0.16), transparent 30%),
+		radial-gradient(circle at top right, rgba(52, 211, 153, 0.14), transparent 26%),
+		linear-gradient(180deg, #020617 0%, #0f172a 55%, #020617 100%);
+}
+
+#root {
+	min-height: 100vh;
+}
+
+::selection {
+	background: rgba(34, 211, 238, 0.32);
+	color: #f8fafc;
+}
